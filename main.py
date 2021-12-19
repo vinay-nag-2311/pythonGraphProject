@@ -265,10 +265,9 @@ Related: """
             visited = []
             to_visit = [start]
             while to_visit:
-                v2 = copy.deepcopy(visited)
                 next_node = to_visit.pop()
                 if len(visited) > 0:
-                    v = v2.pop()
+                    v = visited[-1]
                     if v.type == 'vaccine' and \
                             next_node.type == 'vaccine':
                         break
