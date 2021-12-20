@@ -1,41 +1,89 @@
 
---------Function displayAll--------
-Total no. of strains: 6
-Total no. of vaccines: 8
-List of strains:
-229E
-B1351
-P1
-B117
-B1617
-L452R
-
-List of vaccines:
-CoviShield
-Covaxin
-SputnikV
-Pfizer
-Moderna
-SputnikLight
-CoronaVac
-J&J
-----------------
-
---------Function displayStrain --------
-Vaccine name: Covaxin
-List of Strains:
-229E
-B1351
---------Function displayVaccine --------
-Strain name: P1
-List of Vaccines:
-SputnikLight
-CoronaVac
---------Function commonStrain --------
-Vaccine A: Pfizer
-Vaccine B: Moderna
-Common Strain: Yes, B1617.
 --------Function findVaccineConnect --------
-Vaccine A: Moderna
+Vaccine A: Covaxin
+Vaccine B: SputnikV
+Related: Yes, Covaxin > P1 > CoronaVac > B1617 > SputnikV > B1351 > SputnikV
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: SputnikV
+Related: Yes, Covaxin > P1 > CoronaVac > B1617 > SputnikV > B1351 > SputnikV
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: SputnikV
+Related: ***'Covaxin' and 'SputnikV' are not related to each other through a common vaccine.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: SputnikLight
+Related: ***'Covaxin' and 'SputnikLight' are not related to each other through a common vaccine.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: ***'Covaxin' and 'CoviShield' are not related to each other through a common vaccine.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: Yes, Covaxin > P1 > CoronaVac > B1617 > SputnikV > B1351 > CoviShield
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: ***'Covaxin' and 'CoviShield' are not related to each other through a common vaccine.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: ***'Covaxin' and 'CoviShield' are not related to each other through a common vaccine.***
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: Pfizer
+Common Strain: ***'Covaxin' and 'Pfizer' are not related to each other through one common strain.***
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: Pfizer
+Common Strain: Yes, 229E.
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: Pfizer
+Common Strain: Yes, 229E.
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Common Strain: Yes, 229E.
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: SputnikLight
+Common Strain: Yes, P1.
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: Moderna
+Common Strain: Yes, B1351.
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: Moderna
+Common Strain: ***'Covaxin' and 'Moderna' are not related to each other through one common strain.***
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: SputnikLight
+Common Strain: Yes, P1.
+--------Function commonStrain --------
+Vaccine A: Covaxin
 Vaccine B: J&J
-Related: ***'Moderna' and 'J&J' are not related to each other through a common vaccine.***
+Common Strain: ***'Covaxin' and 'J&J' are not related to each other through one common strain.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: ***'Covaxin' and 'CoviShield' are not related to each other through a common vaccine.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: ***'Covaxin' and 'CoviShield' are not related to each other through a common vaccine.***
+--------Function findVaccineConnect --------
+Vaccine A: Covaxin
+Vaccine B: CoviShield
+Related: ***'Covaxin' and 'CoviShield' are not related to each other through a common vaccine.***
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: SputnikLight
+Common Strain: Yes, P1.
+--------Function commonStrain --------
+Vaccine A: Covaxin
+Vaccine B: Moderna
+Common Strain: ***'Covaxin' and 'Moderna' are not related to each other through one common strain.***
