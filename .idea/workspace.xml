@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60e34627-9a4c-4f79-aa20-bcd11ae9d9cb" name="Changes" comment="Changed inputfile.">
+    <list default="true" id="60e34627-9a4c-4f79-aa20-bcd11ae9d9cb" name="Changes" comment="Changed code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputPS16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/inputPS16.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/outputPS16.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/promptsPS16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/promptsPS16.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1640015116648</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Changed code.">
+      <created>1640030548275</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1640030548275</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed code.">
+      <created>1640030552085</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1640030552085</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +169,7 @@
     <MESSAGE value="Modified code. Added comments." />
     <MESSAGE value="Modified findVaccineConnect." />
     <MESSAGE value="Changed inputfile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed inputfile." />
+    <MESSAGE value="Changed code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed code." />
   </component>
 </project>

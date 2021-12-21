@@ -1,13 +1,10 @@
-import copy
-
-
 class Vertex:
     """
     Class to define a vertex in our graph.
     Here, a vertex signifies a Vaccine or Strain.
     """
-
     def __init__(self, vtx_name: str, vtx_type: str):
+        """Initialise an empty vertex."""
         self.name = vtx_name
         self.type = vtx_type
 
@@ -58,6 +55,7 @@ class Immunization:
             input_file_read = fi.read()
         input_split = input_file_read.split("\n")
 
+        # loop across the lines of the file
         for i in input_split:
             each_split = i.replace("/", " ").split()
             s = Vertex(each_split[0], 'strain')
@@ -223,33 +221,40 @@ Common Strain: """
 
         if not self.has_vertex(start):
             output_string = f"***Information about '{vacA}' " + \
-                            f"is not available.***"
-            print(output_intro + output_string)
+                            "is not available.***"
         elif not self.has_vertex(end):
             output_string = f"***Information about '{vacB}' " + \
-                            f"is not available.***"
+                            "is not available.***"
         else:
             visited = []
-            to_visit = [start]
-            level = 1
-            while level < 4:
-                next_node = to_visit.pop(0)
-                visited.append(next_node)
-                connecn = self.list_connections(next_node)
-                for conn in connecn:
-                    if conn == end:
-                        output_string = "Yes, " + next_node.name + "."
-                        with open("outputPS16.txt", "a") as fout:
-                            fout.write(output_intro + output_string)
-                            fout.close()
-                        return 0
-                    if conn not in visited and conn not in to_visit:
-                        to_visit.append(conn)
-                level += 1
+            to_visit = [[start]]
+            if start == end:
+                output_string = f"Inputs '{vacA}' and '{vacB}' " + \
+                                "refer to the same vaccine."
+                with open("outputPS16.txt", "a") as fout:
+                    fout.write(output_intro + output_string)
+                    fout.close()
+                return
+            while to_visit:
+                path = to_visit.pop(0)
+                node = path[-1]
+                if node not in visited:
+                    neighbours = self.list_connections(node)
+                    for neighbour in neighbours:
+                        new_path = list(path)
+                        new_path.append(neighbour)
+                        to_visit.append(new_path)
+                        if neighbour == end and len(new_path) == 3:
+                            output_string = "Yes, " + new_path[1].name + "."
+                            with open("outputPS16.txt", "a") as fout:
+                                fout.write(output_intro + output_string)
+                                fout.close()
+                            return
+                    visited.append(node)
         with open("outputPS16.txt", "a") as fout:
             fout.write(output_intro + output_string)
             fout.close()
-        return 1
+        return
 
     def findVaccineConnect(self, vacA, vacB):
         """
@@ -271,85 +276,76 @@ Related: """
         if not self.has_vertex(start):
             output_string = f"***Information about '{vacA}' " + \
                             f"is not available.***"
-            print(output_intro + output_string)
         elif not self.has_vertex(end):
             output_string = f"***Information about '{vacB}' " + \
                             f"is not available.***"
-            print(output_intro + output_string)
         else:
             visited = []
-            to_visit = [start]
+            to_visit = [[start]]
+            if start == end:
+                output_string = f"Inputs '{vacA}' and '{vacB}' " + \
+                                "refer to the same vaccine."
+                with open("outputPS16.txt", "a") as fout:
+                    fout.write(output_intro + output_string)
+                    fout.close()
+                return
             while to_visit:
-                next_node = to_visit.pop()
-                # if len(visited) > 0:
-                #     v = visited[-1]
-                #     if v.type == 'vaccine' and \
-                #             next_node.type == 'vaccine':
-                #         break
-                visited.append(next_node)
-                for conn in self.list_connections(next_node):
-                    # if conn == end:  # and len(visited) > 4:
-                    #     visited.append(conn)
-                    #     visited_name = [x.name for x in visited]
-                    #     output_string = "Yes, " + " > "\
-                    #         .join(visited_name) + ""
-                    #     with open("outputPS16.txt", "a") as fout:
-                    #         fout.write(output_intro + output_string)
-                    #         fout.close()
-                    #     return 0
-                    if conn not in visited and conn not in to_visit:
-                        to_visit.append(conn)
-            for i in visited:
-                print(i)
-            with open("outputPS16.txt", "a") as fout:
-                fout.write(output_intro + output_string)
-                fout.close()
-
-    def printAllPathsUtil(self, u, d, visited, path):
-        visited.append(u)
-        path.append(u)
-        if u == d:
-            print("--------Path-------", u)
-            for i in path:
-                print(i)
-        else:
-            for i in self.list_connections(u):
-                if i not in visited:
-                    self.printAllPathsUtil(i, d, visited, path)
-        path.pop()
-        visited.remove(u)
-
-    def printAllPaths(self, s, d):
-        start = Vertex(s, 'vaccine')
-        end = Vertex(d, 'vaccine')
-        visited = []
-        path = []
-        self.printAllPathsUtil(start, end, visited, path)
+                path = to_visit.pop()
+                node = path[-1]
+                if node not in visited:
+                    neighbours = self.list_connections(node)
+                    for neighbour in neighbours:
+                        new_path = list(path)
+                        new_path.append(neighbour)
+                        to_visit.append(new_path)
+                        if neighbour == end:
+                            if len(new_path) == 5:
+                                visited_name = [x.name for x in new_path]
+                                output_string = "Yes, " + " > " \
+                                    .join(visited_name) + ""
+                                with open("outputPS16.txt", "a") as fout:
+                                    fout.write(output_intro + output_string)
+                                    fout.close()
+                                    return
+                            else:
+                                with open("outputPS16.txt", "a") as fout:
+                                    fout.write(output_intro + output_string)
+                                    fout.close()
+                                    return
+                    visited.append(node)
+        with open("outputPS16.txt", "a") as fout:
+            fout.write(output_intro + output_string)
+            fout.close()
+        return
 
 
 if __name__ == '__main__':
+    # initialise paths
     file_path = 'inputPS16.txt'
     prompts_path = 'promptsPS16.txt'
+
+    # read input path
     a = Immunization().readInputfile(file_path)
-    # a.displayAll()
-    # with open(prompts_path, 'r') as f:
-    #     file_read = f.read()
-    # input_spl = file_read.split("\n")
-    # a.commonStrain('Covaxin', 'Moderna')
-    a.findVaccineConnect('Covaxin', 'CoviShield')
-    # a.printAllPaths('Covaxin', 'J&J')
-    # for line in input_spl:
-    #     l_arr = line.split(":")
-    #     if l_arr[0] == "displayStrains":
-    #         a.displayStrains(l_arr[1].strip())
-    #     elif l_arr[0] == "listVaccine":
-    #         a.displayVaccine(l_arr[1].strip())
-    #     elif l_arr[0] == "commonStrain":
-    #         a.commonStrain(l_arr[1].strip(),
-    #                        l_arr[2].strip())
-    #     elif l_arr[0] == "findVaccineConnect":
-    #         a.findVaccineConnect(l_arr[1].strip(),
-    #                              l_arr[2].strip())
-    #     else:
-    #         print("***Prompt : " + l_arr[0] +
-    #               " - Not implemented!")
+    a.displayAll()
+
+    # prompt path
+    with open(prompts_path, 'r') as f:
+        file_read = f.read()
+    input_spl = file_read.split("\n")
+
+    # run prompts
+    for line in input_spl:
+        l_arr = line.split(":")
+        if l_arr[0] == "displayStrains":
+            a.displayStrains(l_arr[1].strip())
+        elif l_arr[0] == "listVaccine":
+            a.displayVaccine(l_arr[1].strip())
+        elif l_arr[0] == "commonStrain":
+            a.commonStrain(l_arr[1].strip(),
+                           l_arr[2].strip())
+        elif l_arr[0] == "findVaccineConnect":
+            a.findVaccineConnect(l_arr[1].strip(),
+                                 l_arr[2].strip())
+        else:
+            print("***Prompt : " + l_arr[0] +
+                  " - Not implemented!")

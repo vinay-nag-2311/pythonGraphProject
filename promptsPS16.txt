@@ -1,4 +1,10 @@
 displayStrains: Covaxin
 listVaccine: P1
 commonStrain: Pfizer : Moderna
-findVaccineConnect: Moderna : J&J
+commonStrain: Covaxin : CoviShield
+commonStrain: Johnson : J&J
+commonStrain: SputnikLight : SputnikLight
+findVaccineConnect: CoviShield : J&J
+findVaccineConnect: Covaxin : SputnikV
+findVaccineConnect: Moderna : SputnikLight
+findVaccineConnect: CoronaVac : AstraZeneca
