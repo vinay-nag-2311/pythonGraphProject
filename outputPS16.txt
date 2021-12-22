@@ -48,13 +48,17 @@ Vaccine A: SputnikLight
 Vaccine B: SputnikLight
 Common Strain: Inputs 'SputnikLight' and 'SputnikLight' refer to the same vaccine.
 --------Function findVaccineConnect --------
-Vaccine A: CoviShield
-Vaccine B: J&J
-Related: Yes, CoviShield > B1351 > Moderna > B117 > J&J
+Vaccine A: J&J
+Vaccine B: CoviShield
+Related: Yes, J&J > B117 > Moderna > B1351 > CoviShield
 --------Function findVaccineConnect --------
-Vaccine A: Covaxin
-Vaccine B: SputnikV
-Related: Yes, Covaxin > P1 > CoronaVac > B1617 > SputnikV
+Vaccine A: SputnikV
+Vaccine B: Covaxin
+Related: Yes, SputnikV > B1351 > CoviShield > 229E > Covaxin
+--------Function findVaccineConnect --------
+Vaccine A: CoronaVac
+Vaccine B: Pfizer
+Related: Yes, CoronaVac > P1 > Covaxin > 229E > Pfizer
 --------Function findVaccineConnect --------
 Vaccine A: Moderna
 Vaccine B: SputnikLight
