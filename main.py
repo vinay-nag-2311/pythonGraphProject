@@ -60,10 +60,11 @@ class Immunization:
             each_split = i.replace("/", " ").split()
             s = Vertex(each_split[0], 'strain')
             self.add_vertex(s)
-            for j in range(1, len(each_split)):
-                v = Vertex(each_split[j], 'vaccine')
-                self.add_vertex(v)
-                self.add_edge(s, v)
+            if len(i) > 2:
+                for j in range(1, len(each_split)):
+                    v = Vertex(each_split[j], 'vaccine')
+                    self.add_vertex(v)
+                    self.add_edge(s, v)
 
         return self
 
