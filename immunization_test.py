@@ -117,7 +117,7 @@ class Immunization:
         the input file.
         It should also list out the unique vaccines and
         strains.The output of this function should be
-        pushed into outputPS16.txt file.
+        pushed into outputPS16_bkp.txt file.
         The output format should be as mentioned below.
         """
         strn_list = [x for x in self.vaccine_list if x.type == "strain"]
@@ -135,7 +135,7 @@ class Immunization:
             list_vaccines += ("\n" + v.name)
         func_end = "\n" + "-" * 16 + "\n"
 
-        with open("outputPS16.txt", "a") as fout:
+        with open("outputPS16_bkp.txt", "a") as fout:
             fout.write(func_intro + num_strains + num_vaccines +
                        list_strains + list_vaccines + func_end)
             fout.close()
@@ -162,7 +162,7 @@ class Immunization:
         else:
             output_info = "***Information about '" + vacc + "' is not available.***"
 
-        with open("outputPS16.txt", "a") as fout:
+        with open("outputPS16_bkp.txt", "a") as fout:
             fout.write(output_intro_str + output_info)
             fout.close()
 
@@ -188,7 +188,7 @@ class Immunization:
         else:
             output_info = "***Information about '" + strn + "' is not available.***"
 
-        with open("outputPS16.txt", "a") as fout:
+        with open("outputPS16_bkp.txt", "a") as fout:
             fout.write(output_intro_str + output_info)
             fout.close()
 
@@ -232,7 +232,7 @@ Common Strain: """
             if start == end:
                 output_string = f"Inputs '{vacA}' and '{vacB}' " + \
                                 "refer to the same vaccine."
-                with open("outputPS16.txt", "a") as fout:
+                with open("outputPS16_bkp.txt", "a") as fout:
                     fout.write(output_intro + output_string)
                     fout.close()
                 return
@@ -247,12 +247,12 @@ Common Strain: """
                         to_visit.append(new_path)
                         if neighbour == end and len(new_path) == 3:
                             output_string = "Yes, " + new_path[1].name + "."
-                            with open("outputPS16.txt", "a") as fout:
+                            with open("outputPS16_bkp.txt", "a") as fout:
                                 fout.write(output_intro + output_string)
                                 fout.close()
                             return
                     visited.append(node)
-        with open("outputPS16.txt", "a") as fout:
+        with open("outputPS16_bkp.txt", "a") as fout:
             fout.write(output_intro + output_string)
             fout.close()
         return
@@ -261,7 +261,7 @@ Common Strain: """
         """
         This function finds out if two vaccines A and B are
         related to each other through a common vaccine C
-        using the Breadth-first traversal technique.
+        using the Depth-first traversal technique.
         :param vacA: Vaccine-A name
         :param vacB: Vaccine-B name
         """
@@ -286,7 +286,7 @@ Related: """
             if start == end:
                 output_string = f"Inputs '{vacA}' and '{vacB}' " + \
                                 "refer to the same vaccine."
-                with open("outputPS16.txt", "a") as fout:
+                with open("outputPS16_bkp.txt", "a") as fout:
                     fout.write(output_intro + output_string)
                     fout.close()
                 return
@@ -304,17 +304,17 @@ Related: """
                                 visited_name = [x.name for x in new_path]
                                 output_string = "Yes, " + " > " \
                                     .join(visited_name) + ""
-                                with open("outputPS16.txt", "a") as fout:
+                                with open("outputPS16_bkp.txt", "a") as fout:
                                     fout.write(output_intro + output_string)
                                     fout.close()
                                     return
                             else:
-                                with open("outputPS16.txt", "a") as fout:
+                                with open("outputPS16_bkp.txt", "a") as fout:
                                     fout.write(output_intro + output_string)
                                     fout.close()
                                     return
                     visited.append(node)
-        with open("outputPS16.txt", "a") as fout:
+        with open("outputPS16_bkp.txt", "a") as fout:
             fout.write(output_intro + output_string)
             fout.close()
         return

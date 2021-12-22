@@ -4,7 +4,8 @@ commonStrain: Pfizer : Moderna
 commonStrain: Covaxin : CoviShield
 commonStrain: Johnson : J&J
 commonStrain: SputnikLight : SputnikLight
-findVaccineConnect: CoviShield : J&J
-findVaccineConnect: Covaxin : SputnikV
+findVaccineConnect: J&J : CoviShield
+findVaccineConnect: SputnikV : Covaxin
+findVaccineConnect: CoronaVac : Pfizer
 findVaccineConnect: Moderna : SputnikLight
 findVaccineConnect: CoronaVac : AstraZeneca
